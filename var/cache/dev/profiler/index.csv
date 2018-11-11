@@ -84,3 +84,6 @@ c9552a,127.0.0.1,GET,http://localhost:8001/blog/mon_article,1541937869,,404
 0b0c83,127.0.0.1,GET,http://localhost:8001/blog/mon-super-article,1541937889,,200
 db4c17,127.0.0.1,GET,http://localhost:8001/blog/mon-super_article,1541937895,8d271e,200
 8d271e,127.0.0.1,GET,http://localhost:8001/blog/mon-super_article,1541937895,,404
+c76254,127.0.0.1,GET,http://localhost:8001/blog/mon-super_article,1541939051,c4a437,200
+c4a437,127.0.0.1,GET,http://localhost:8001/blog/mon-super_article,1541939051,,404
+22d0f8,127.0.0.1,GET,http://localhost:8001/blog/mon-super-article,1541940021,,200
