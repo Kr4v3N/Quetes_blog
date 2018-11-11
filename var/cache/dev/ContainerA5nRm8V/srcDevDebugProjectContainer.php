@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerS7aWXEM;
+namespace ContainerA5nRm8V;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -60,7 +60,9 @@ class srcDevDebugProjectContainer extends Container
             'var_dumper.cloner' => 'getVarDumper_ClonerService',
         );
         $this->fileMap = array(
+            'App\\Controller\\BlogController' => 'getBlogControllerService.php',
             'App\\Controller\\HomeController' => 'getHomeControllerService.php',
+            'App\\Controller\\LuckyController' => 'getLuckyControllerService.php',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService.php',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService.php',
             'cache.app_clearer' => 'getCache_AppClearerService.php',
