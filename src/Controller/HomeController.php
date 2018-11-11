@@ -19,7 +19,7 @@ class HomeController extends AbstractController
 
     public function index (){
         $message = "Hello WCS";
-        return $this->render('/index.html.twig', ['message' => $message]);
+        return $this->render('/home.html.twig', ['message' => $message]);
 
     }
 
