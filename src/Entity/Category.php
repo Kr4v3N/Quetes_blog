@@ -21,6 +21,8 @@ class Category
      */
     private $name;
 
+    private $article;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +36,18 @@ class Category
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }
