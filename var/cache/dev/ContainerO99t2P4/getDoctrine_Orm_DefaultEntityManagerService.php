@@ -43,7 +43,9 @@ $a->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
 $a->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
 $a->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
 $a->setEntityListenerResolver(new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerAwareEntityListenerResolver($this));
-$a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Repository\\CategoryRepository' => function () {
+$a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\ServiceLocator(array('App\\Repository\\ArticleRepository' => function () {
+    return ($this->privates['App\Repository\ArticleRepository'] ?? $this->load('getArticleRepositoryService.php'));
+}, 'App\\Repository\\CategoryRepository' => function () {
     return ($this->privates['App\Repository\CategoryRepository'] ?? $this->load('getCategoryRepositoryService.php'));
 }))));
 
