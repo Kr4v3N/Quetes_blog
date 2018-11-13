@@ -137,3 +137,6 @@ e37e06,127.0.0.1,GET,http://localhost:8000/article,1542018113,,200
 4bcee9,127.0.0.1,GET,http://localhost:8000/article,1542019209,,200
 2e4bda,127.0.0.1,GET,http://localhost:8000/article,1542019247,,200
 4f52aa,127.0.0.1,GET,http://localhost:8000/article,1542019340,,200
+44cfb4,127.0.0.1,GET,http://localhost:8001/article,1542101587,,200
+53532a,127.0.0.1,GET,http://localhost:8001/category,1542101592,7b6c0b,200
+7b6c0b,127.0.0.1,GET,http://localhost:8001/category,1542101592,,404
