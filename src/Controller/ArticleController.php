@@ -1,10 +1,15 @@
 <?php
+
 namespace App\Controller;
+
 use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+
+
 class ArticleController extends AbstractController
+
 {
     /**
      * @Route("/article", name="article")
@@ -29,11 +34,11 @@ class ArticleController extends AbstractController
 
 
 
-        return $this->render('article/index.html.twig', [
+        return $this->render('article/show.html.twig', [
             'controller_name' => 'ArticleController',
             	        'categories' => $categories,
                         'articles' => $articles,
-            'tableau' => $tableau
+                        'tableau' => $tableau
         ]);
     }
 }

@@ -21,4 +21,16 @@ class BlogController extends AbstractController
             'page' => $page
         ]);
     }
+
+    /**
+     * @Route "/blog/{category}
+     */
+
+    public function showAllByCategory() {
+        article->article =GetA
+    }
+
 }
+
+
+
