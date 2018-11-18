@@ -14,11 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/",name ="homepage")
      * */
 
     public function index (){
-        $message = "Hello WCS";
+        $message = "Hello les gens";
         return $this->render('/home.html.twig', ['message' => $message]);
 
     }

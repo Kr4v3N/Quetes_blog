@@ -84,7 +84,7 @@ class __TwigTemplate_d357dad685c0f9f79bbbe419f4f20b532226d0b3b513fe8d1ede57820f9
             echo "
                 ";
             // line 9
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["category"], "name", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["category"], "owner", array()), "name", array()), "html", null, true);
             echo "
 
             ";
@@ -154,7 +154,7 @@ class __TwigTemplate_d357dad685c0f9f79bbbe419f4f20b532226d0b3b513fe8d1ede57820f9
 {#{{ dump(tableau) }}#}
         {% for category in tableau %}
 
-                {{ category.name}}
+                {{ category.owner.name}}
 
             {% for article in category %}
                 <ul class=\"list-group list-group-flush\">

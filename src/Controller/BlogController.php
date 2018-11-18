@@ -2,33 +2,133 @@
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Article;
 
 class BlogController extends AbstractController
 {
+
     /**
-     * @Route("/blog/{page}",
-     *     name="blog_show",
-     *     requirements={"page"="[a-z0-9-]+"})
+     * Show all row from article's entity
+     *
+     * @Route("/blog", name="blog_index")
+     * @return Response A response instance
      */
-    public function show($page='Article Sans Titre')
+    public function index() : Response
     {
-        $page = str_replace('-', ' ',$page);
-        $page = ucwords($page);
-        return $this->render('blog/index.html.twig', [
-            'page' => $page
-        ]);
+        $articles = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findAll();
+
+        if (!$articles) {
+            throw $this->createNotFoundException(
+                'No article found in article\'s table.'
+            );
+        }
+
+        return $this->render(
+            'blog/index.html.twig',
+            ['articles' => $articles]
+        );
     }
 
     /**
-     * @Route "/blog/{category}
+     * Getting a article with a formatted slug for title
+     *
+     * @param string $slug The slugger
+     *
+     * @Route("blog/{slug<^[a-z0-9-]+$>}",
+     *     defaults={"slug" = null},
+     *     name="blog_show")
+     *  @return Response A response instance
      */
+    public function show($slug) : Response
+    {
+        if (!$slug) {
+            throw $this
+                ->createNotFoundException('No slug has been sent to find an article in article\'s table.');
+        }
 
-    public function showAllByCategory() {
-        article->article =GetA
+        $slug = preg_replace(
+            '/-/',
+            ' ', ucwords(trim(strip_tags($slug)), "-")
+        );
+
+        $article = $this->getDoctrine()
+            ->getRepository(Article::class)
+            ->findOneBy(['title' => mb_strtolower($slug)]);
+
+        if (!$article) {
+            throw $this->createNotFoundException(
+                'No article with '.$slug.' title, found in article\'s table.'
+            );
+        }
+
+        return $this->render('blog/show.html.twig',
+            [
+                'article' => $article,
+                'slug' => $slug,
+            ]
+        );
     }
+
+
+    /**
+     *
+     *
+     * @param string $category the slugger
+     *
+     * @Route("/category/{category}", name="blog_show_category").
+     * @return Response A response instance
+     */
+    public function showByCategory(string $category) : Response
+    {
+        $categoryRepository = $this->getDoctrine()
+            ->getRepository(Category::class);
+        $oneCategory = $categoryRepository->findOneByName($category);
+
+
+        $articleRepository = $this->getDoctrine()
+            ->getRepository(Article::class);
+        $articles = $articleRepository->findBy(
+            ['category'=>$oneCategory],
+            ['id'=>'DESC'],
+            3);
+        return $this->render(
+            'blog/category.html.twig',
+            [
+                'articles' => $articles,
+                'category' => $oneCategory,
+            ]);
+
+    }
+
+
+    /**
+     * @param string $category the slugger
+     *
+     * @Route("blog/category/{category}/all", name="blog_showAll_category").
+     * @return Response A response instance
+     */
+    public function showAllByCategory(string $category) : Response
+    {
+        $categoryRepository = $this->getDoctrine()
+            ->getRepository(Category::class);
+        $category = $categoryRepository->findOneByName($category);
+
+        $articles= $category->getArticles();
+
+        return $this->render('blog/allCategory.html.twig',
+            [
+                'articles'=> $articles,
+                'category' => $category,
+            ]);
+
+    }
+
 
 }
 

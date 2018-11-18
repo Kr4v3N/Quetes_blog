@@ -31,27 +31,34 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
         // line 1
         echo "<!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>";
-        // line 5
+
+<head>
+    <meta charset=\"UTF-8\">
+
+    <title>";
+        // line 8
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-        ";
-        // line 6
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 7
-        echo "    </head>
-    <body>
-        ";
+    ";
         // line 9
-        $this->displayBlock('body', $context, $blocks);
+        $this->displayBlock('stylesheets', $context, $blocks);
         // line 10
-        echo "        ";
+        echo "</head>
+
+<body>
+
+    ";
+        // line 14
+        $this->displayBlock('body', $context, $blocks);
+        // line 15
+        echo "    ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 11
-        echo "    </body>
+        // line 16
+        echo "
+</body>
+
 </html>
 ";
         
@@ -62,7 +69,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 5
+    // line 8
     public function block_title($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -80,7 +87,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 6
+    // line 9
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -97,7 +104,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 9
+    // line 14
     public function block_body($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -114,7 +121,7 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     }
 
-    // line 10
+    // line 15
     public function block_javascripts($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -138,23 +145,30 @@ class __TwigTemplate_295e440349952fe148c35fffa57140bad91e0f0a1b9944bff936a182934
 
     public function getDebugInfo()
     {
-        return array (  118 => 10,  101 => 9,  84 => 6,  66 => 5,  54 => 11,  51 => 10,  49 => 9,  45 => 7,  43 => 6,  39 => 5,  33 => 1,);
+        return array (  125 => 15,  108 => 14,  91 => 9,  73 => 8,  59 => 16,  56 => 15,  54 => 14,  48 => 10,  46 => 9,  42 => 8,  33 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<!DOCTYPE html>
+
 <html>
-    <head>
-        <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+<head>
+    <meta charset=\"UTF-8\">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+
+<body>
+
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+
+</body>
+
 </html>
-", "base.html.twig", "/home/chena/blog/templates/base.html.twig");
+", "base.html.twig", "/home/chena/wild/quetes/2 - Symfony : Initialiser un projet/blog/templates/base.html.twig");
     }
 }
